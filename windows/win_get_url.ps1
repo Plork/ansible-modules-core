@@ -77,7 +77,7 @@ Else {
         $webRequest.Method = "GET"
         [System.Net.HttpWebResponse]$webResponse = $webRequest.GetResponse()
         
-        $stream = New-Object System.IO.StreamReader($response.GetResponseStream())
+        $stream = New-Object System.IO.StreamReader($webResponse.GetResponseStream())
         
         $stream.ReadToEnd() | Set-Content -Path $dest -Force -ErrorAction Stop
         
